@@ -59,7 +59,7 @@ class heap{
 };
 
 
-void heapify(int arr[] , int size , int i ){
+void heapify(int arr[] , int size , int i ){  //T.C -> O(log(n));
     int largest =i;
     int left = 2*i ;
     int right = 2*i+1;
