@@ -1,0 +1,19 @@
+Graphs Notes.
+
+Edge - connecting two Nodes
+
+Undirected graph - Conncected to both Nodes
+Degree - No. of edges connected to one Node
+
+Directed graph - Can go from one node to another(in a  single direction)
+Indegree - edge coming towards the node
+outdegree - edge going outside the node.
+
+Weighted Graph - On edge there are some weights. Like edge between a and b have a weight of 3.
+
+Path - The distance travelled from one node to another(Unique nodes)
+
+Cyclic Grah - A cycle will be formed.
+
+We can implement it using - adjacencey matrix and adjacency list.
+
