@@ -18,7 +18,7 @@ class graph{
         }
     void printgraph(){
         for(auto i:gra){
-            cout<<i.first<<" ";
+            cout<<i.first<<" -> ";
             for(auto j: i.second){
                 cout<<j<<" ";
             }
