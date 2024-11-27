@@ -3,6 +3,7 @@
 using namespace std;
                     // Node of left subtree will be smaller than root
                     //Node of right subtree will be larger than root
+                    //Inorder of BST is SORTED!!!
 
 
 class Tree{
