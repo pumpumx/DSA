@@ -4,8 +4,8 @@
 using namespace std;
 
 int main(){
-    vector<vector<int>>& matrix;
-   matrix[3][3] = {{1,2,3} , {2,4,5},{7,5,4}};
+    vector<vector<int>> matrix;
+   matrix[3][3] = {{1,2,3} , {2,4,5},  {7,5,4}};
         vector<vector<int>> ans;
         int row = matrix.size();
         int col = matrix[0].size();
