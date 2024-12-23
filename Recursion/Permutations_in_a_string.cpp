@@ -24,5 +24,4 @@ int main(){
     for(auto num:ans){
         cout<<num<<" ";
     }
-
 }
