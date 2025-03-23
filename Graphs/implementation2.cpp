@@ -7,17 +7,17 @@ using namespace std;
 class graph{
 
     public:
-        unordered_map<int , list<int>> gra;
+        unordered_map<int , list<int>> graph;
 
         void addedge(int u , int v , bool direction){
-            gra[u].push_back(v);
+            graph[u].push_back(v);
 
             if(direction==0){
-                gra[v].push_back(u);
+                graph[v].push_back(u);
             }
         }
     void printgraph(){
-        for(auto i:gra){
+        for(auto i:graph){
             cout<<i.first<<" -> ";
             for(auto j: i.second){
                 cout<<j<<" ";

@@ -42,14 +42,14 @@ void buildfromlevelorder(Node* &root){
         Node* temp = q.front();
         q.pop();
 
-        cout<<"Enter data for left Node of"<<temp->data<<endl;
+        cout<<"Enter data for left Node of "<<temp->data<<endl;
         int leftdata;
         cin>>leftdata;
         if(leftdata!=-1){
             temp->left = new Node(leftdata);
             q.push(temp->left);
         }
-         cout<<"Enter data for right Node of"<<temp->data<<endl;
+         cout<<"Enter data for right Node of "<<temp->data<<endl;
         int rightdata;
         cin>>rightdata;
         if(rightdata!=-1){
@@ -81,11 +81,8 @@ void buildfromlevelorder(Node* &root){
         if(temp->right){
             q.push(temp->right);
         }
-        }
-        
-    }
-    
-    
+        }   
+    }   
 }
 
 
