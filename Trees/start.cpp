@@ -1,6 +1,6 @@
 #include <iostream>
 #include <queue>
-
+#include <stack>
 using namespace std;
 
 class Node{
@@ -29,7 +29,7 @@ Node*BuildFromLevelOrder(Node* root){
     }
 
 
-    cout<<"Enter data for "<<data<<" left node"<<endl;
+    cout<<"Enter data for "<<data<<" left node"<<endl;  
     root->left = BuildFromLevelOrder(root->left);
 
     cout<<"Enter data for "<<data<<"right Node"<<endl;
@@ -69,11 +69,65 @@ void levelOrderTraversal(Node* root){
     }  
 } ;
 
+void reverseLevelOrderTraversal(Node* root){
+    if(root == NULL){
+        return;
+    }
+    queue<Node*> q;
+    stack<Node*> s;
+    q.push(root);
+    q.push(NULL);
+
+    while(!q.empty()){
+        Node* temp = q.front();
+        q.pop();
+        if(temp == NULL){
+            s.push(temp);
+            if(!q.empty()){
+                q.push(NULL);
+            }
+        }
+        else{
+            s.push(temp);
+            if(temp->left){
+                q.push(temp->left);
+            }
+            if(temp->right){
+                q.push(temp->right);
+            }
+        }
+    }    
+    while(!s.empty()){
+        Node* newNode = s.top();
+        
+        if(newNode == NULL){
+            cout<<endl;
+        }
+        else{
+            cout<<newNode->data<<" ";
+        }
+        s.pop();
+   }
+};
+
+
+void Inorder(Node* root){
+
+    if(root == NULL){
+        return;
+    }
+
+    Inorder(root->left);
+    cout<<root->data<<" ";
+    Inorder(root->right);
+}
+
 int main(){
 
     Node* root = NULL;
 
     root = BuildFromLevelOrder(root);
 
-    levelOrderTraversal(root);
+    reverseLevelOrderTraversal(root);
+    Inorder(root);
 }
