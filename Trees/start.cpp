@@ -16,7 +16,7 @@ class Node{
         }
 };
 
-Node*BuildFromLevelOrder(Node* root){
+Node*BuildUsingRecursion(Node* root){
 
     cout<<"Enter data"<<endl;
     int data;
@@ -30,10 +30,10 @@ Node*BuildFromLevelOrder(Node* root){
 
 
     cout<<"Enter data for "<<data<<" left node"<<endl;  
-    root->left = BuildFromLevelOrder(root->left);
+    root->left = BuildUsingRecursion(root->left);
 
     cout<<"Enter data for "<<data<<"right Node"<<endl;
-    root->right = BuildFromLevelOrder(root->right);
+    root->right = BuildUsingRecursion(root->right);
 
     return root;
 
@@ -110,6 +110,45 @@ void reverseLevelOrderTraversal(Node* root){
    }
 };
 
+Node* BuildFromLevelOrder(Node* root){
+    cout<<"Enter Data for root node"<<endl;
+    int data;
+    cin>>data;
+
+    if(data == -1){
+        return NULL;
+    }
+
+    root = new Node(data);
+
+    queue<Node*> q;
+    q.push(root);
+
+    while(!q.empty()){
+        Node* temp =  q.front();
+        q.pop();
+
+        if(temp->left == NULL){
+            cout << "Enter data to the left of"<<temp->data<<endl;
+            int leftData;
+            cin>>leftData;
+            if(leftData != -1){
+                temp->left = new Node(leftData);
+                q.push(temp->left);
+            }
+        }
+        if(temp->right == NULL){
+            cout << "Enter data to the Right of"<<temp->data<<endl;
+            int rightData;
+            cin>>rightData;
+            if(rightData != -1){
+                temp->right = new Node(rightData);
+                q.push(temp->right);
+            }
+        }
+    }
+    return root;
+}
 
 void Inorder(Node* root){
 
@@ -127,7 +166,5 @@ int main(){
     Node* root = NULL;
 
     root = BuildFromLevelOrder(root);
-
-    reverseLevelOrderTraversal(root);
     Inorder(root);
 }
